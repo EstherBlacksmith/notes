@@ -1,0 +1,39 @@
+@RestController
+@RequestMapping("/api/nombre-recurso")
+public class NombreControlador {
+
+    // Endpoint para obtener todos los recursos
+    @GetMapping
+    public ResponseEntity<List<Recurso>> getAllRecursos() {
+        // Lógica para obtener todos los recursos
+        return ResponseEntity.ok(recursos);
+    }
+
+    // Endpoint para obtener un recurso por ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Recurso> getRecursoById(@PathVariable String id) {
+        // Lógica para obtener un recurso por ID
+        return ResponseEntity.ok(recurso);
+    }
+
+    // Endpoint para crear un nuevo recurso
+    @PostMapping
+    public ResponseEntity<Recurso> createRecurso(@RequestBody Recurso recurso) {
+        // Lógica para crear un nuevo recurso
+        return ResponseEntity.status(HttpStatus.CREATED).body(recursoCreado);
+    }
+
+    // Endpoint para actualizar un recurso
+    @PutMapping("/{id}")
+    public ResponseEntity<Recurso> updateRecurso(@PathVariable String id, @RequestBody Recurso recurso) {
+        // Lógica para actualizar un recurso
+        return ResponseEntity.ok(recursoActualizado);
+    }
+
+    // Endpoint para eliminar un recurso
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteRecurso(@PathVariable String id) {
+        // Lógica para eliminar un recurso
+        return ResponseEntity.noContent().build();
+    }
+}
